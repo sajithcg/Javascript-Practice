@@ -1,0 +1,12 @@
+alert("hello");
+
+alert('good job');
+
+document.body.innerHTML= "hello";
+
+document.body.innerHTML = 'Good morning!, Sajith Mohammed';
+
+document.body.innerHTML="";
+
+alert(`Total cost: $${(599+295)/100}\nThank you, come again!`);
+
