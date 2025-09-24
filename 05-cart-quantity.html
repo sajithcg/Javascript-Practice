@@ -9,51 +9,67 @@
         <style>
 
         </style>
+        
     </head>
     <body>
         <h3>Cart Quantity</h3>
-        <button onclick="console.log(`Cart quantity: ${cartQuantity}`);">Show Quantity</button> 
+        <button onclick="
+        console.log(`Cart quantity: ${cartQuantity}`);
+        ">Show Quantity</button> 
 
         <button onclick="
-        cartQuantity++;
-        console.log(`Cart quantity: ${cartQuantity}`);">Add to cart</button>
+        updateCartQuantity(1);
+        ">Add to cart</button>
 
         <button onclick="
-        cartQuantity += 2;
-        console.log(`Cart quantity: ${cartQuantity}`);">+2</button> 
+        updateCartQuantity(2);
+        ">+2</button> 
         
         <button onclick="
-        cartQuantity += 3;
-        console.log(`Cart quantity: ${cartQuantity}`);">+3</button> 
+        updateCartQuantity(3);
+        ">+3</button> 
 
         <button onclick="
-        cartQuantity += 4;
-        console.log(`Cart quantity: ${cartQuantity}`);">+4</button> 
+        updateCartQuantity(4);
+        ">+4</button> 
 
         <button onclick="
-        cartQuantity += 5;
-        console.log(`Cart quantity: ${cartQuantity}`);">+5</button> 
+        updateCartQuantity(5);
+        ">+5</button> 
 
         <button onclick="
-        cartQuantity --;
-        console.log(`Cart quantity: ${cartQuantity}`);">Removed from cart</button> 
+        updateCartQuantity(-1)
+        ">Removed from cart</button> 
 
         <button onclick="
-        cartQuantity -= 2;
-        console.log(`Cart quantity: ${cartQuantity}`);">-2</button> 
+        updateCartQuantity(-2)
+        ">-2</button> 
 
         <button onclick="
-        cartQuantity -= 3;
-        console.log(`Cart quantity: ${cartQuantity}`);">-3</button> 
+        updateCartQuantity(-3);
+        ">-3</button> 
 
         <button onclick="
-        cartQuantity = 0;
-        console.log('Cart was reset.');
-        console.log(`Cart quantity: ${cartQuantity}`);
+        updateCartQuantity(0);
         ">Reset Cart</button>
 
         <script>
-            let cartQuantity = 0;            
+            let cartQuantity = 0;      
+            
+            function updateCartQuantity(change) {
+                if (cartQuantity + change > 10) {
+                    alert('The cart is full');
+                    return;
+                }
+
+                if(cartQuantity + change < 0) {
+                    alert('Not enough items in the cart');
+                    return;
+                }
+
+                cartQuantity += change;
+                console.log(`Cart quantity: ${cartQuantity}`);
+            }
         </script>
     </body>
 </html>

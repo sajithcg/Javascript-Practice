@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Objects</title>
+
+    </head>
+    <body>
+        <h1 style="text-align: center;">Objects</h1>
+
+        <script>
+
+            // const product = {
+            //     name: 'Shoe',
+            //     price: 999
+            // };
+            // console.log(product);
+            // console.log(product.name);
+            // console.log(product.price);
+
+            // product.name = 'sneakers';
+            // console.log(product);
+
+            // product.newProperty = true;
+            // console.log(product);
+
+            // delete product.newProperty;
+            // console.log(product);
+
+
+
+
+            // const product2 = {
+            //     name: 'shirt',
+            //     size: 'L',
+            //     'delivery-time': '1 day',
+            //     rating: {
+            //         stars: 4.5,
+            //         count: 87
+            //     },
+            //     fun: function function1() {
+            //         console.log('function inside object');
+            //     }
+            // };
+            // console.log(product2)
+            // console.log(product2.name);
+            // console.log(product2['size']);
+            // console.log(product2['delivery-time']);
+
+            // console.log(product2.rating.count);
+            // product2.fun();
+
+            // console.log(JSON.stringify(product2));
+
+            // const jsonString = JSON.stringify(product2);
+            // console.log(JSON.parse(jsonString));
+
+
+            console.log('Sajith'.length);
+            console.log('hello'.toUpperCase());
+            console.log('SAJITH'.toLowerCase());
+
+            // copy by references
+            const obj = {
+                message: 'hello'
+            };
+
+            const obj2 = obj;
+
+            obj.message = 'Good job!';
+            console.log(obj);
+            console.log(obj2);
+
+            const obj3 = {
+                message: 'Good job!'
+            };
+            console.log(obj3 === obj);
+            console.log(obj2 === obj);
+
+
+            const obj4 = {
+                message: 'Dei Thambi!',
+                price: 799
+            };
+            
+            // destructuring
+            // const message = obj4.message;
+
+            const { message, price } = obj4;
+            console.log(message, price);
+
+            const obj5 = {
+                // message: message
+
+                // shorthand property if property is same
+                message,
+
+
+                // shorthand method - doesn't need a property to mention
+
+                // method: function function1() {
+                //     console.log('method');
+                // }
+                method () {
+
+                    console.log('method');
+                }
+            };
+            console.log(obj5);
+            obj5.method();
+        </script>
+    </body>
+</html>
