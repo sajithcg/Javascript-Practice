@@ -10,35 +10,39 @@
     <body>
         <h1 style="text-align: center;">Coin flip game</h1>
 
-        <!-- <button style="padding: 55px 25px; background: white; border-radius: 50%; border: 5px solid;"
+        <button style="padding: 20px 30px; background: white; border-radius: 20px; border: 5px solid;"
         onclick="
-            const randomNum = Math.random();
+        playGame('Heads');
+        ">Heads</button>
 
-                let result = '';
-
-                if (randomNum < 0.5) {
-                    console.log('heads');
-                } else {
-                    console.log('Tails');
-                }
-
-                let guess = 'heads';
-
-                if(guess === result) {
-                    console.log('You win!');
-                } else {
-                    console.log('You lose!');
-                }
-        ">Heads or Tails</button> -->
+        <button style="padding: 20px 30px; background: white; border-radius: 20px; border: 5px solid;"
+        onclick="
+        playGame('Tails');
+        ">Tails</button>
 
         <script>
+            const score = JSON.parse(localStorage.getItem('score')) || {
+                wins: 0,
+                losses: 0 
+            };
+        
+            function playGame(guess) {
             const randomNum = Math.random();
 
-                const result = randomNum < 0.5 ? 'Heads' : 'Tails';
+            const result = randomNum < 0.5 ? 'Heads' : 'Tails';
 
-                const guess = 'heads';
+            console.log(guess === result ? 'You win!' : 'You lose!');
+            
+            if (guess === result) {
+                score.wins++;
+            } else {
+                score.losses++;
+            }
 
-                console.log(guess === result ? 'You win!' : 'You lose!');
+            console.log(score);
+
+            localStorage.setItem('score', JSON.stringify(score));
+            }
         </script>
     </body>
 </html>

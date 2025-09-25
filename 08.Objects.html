@@ -98,7 +98,7 @@
                 message,
 
 
-                // shorthand method - doesn't need a property to mention
+    // shorthand method - doesn't need a property to mention
 
                 // method: function function1() {
                 //     console.log('method');
@@ -110,6 +110,78 @@
             };
             console.log(obj5);
             obj5.method();
+
+
+            // practice
+            const product = {
+                name: 'Basketball',
+                price: 2095,
+            }
+            console.log(product.name+' '+product.price);
+
+            product.price+= 500;
+            console.log(product);
+
+            product['delivery-time'] = '3 days';
+            console.log(product);
+
+
+            function comparePrice(product1, product2) {
+                if (product1.price < product2.price){
+                    return product1;
+                } else {
+                    return product2;
+                }
+            }
+            const product1 = {
+                name:'Volleyball',
+                price: 300
+            }
+            const product2 = {
+                name: 'Bat',
+                price: 1099
+            }
+            console.log(comparePrice(product1, product2));
+
+
+            function isSameProduct(product1, product2) {
+                if (product1.name === product2.name && product1.price === product2.price) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            console.log(isSameProduct(product1, product2))
+
+
+            const greetWord = {
+                greet: 'Good Morning'
+            }
+            let word = greetWord.greet.toLowerCase();
+            console.log(word);
+
+
+            let str = 'test';
+            let repeated = str.repeat(2);
+            console.log(repeated);
+
+            // there are many approach for my practice i tried both 
+            // normal and empty object. 
+        const strWord = {}; 
+        strWord.name= 'test';
+        let repeatedWord = strWord.name.repeat(3);
+        console.log(repeatedWord);
+
+
+        let person = {
+            name: "Sajith",
+            age: 22
+        };
+        localStorage.setItem(person, JSON.stringify(person));
+
+        let savedPerson = JSON.parse(localStorage.getItem(person));
+        console.log(savedPerson.name);
+
         </script>
     </body>
 </html>

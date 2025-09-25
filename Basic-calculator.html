@@ -14,12 +14,12 @@
             style="justify-content: center; text-align: center; padding: 5px; background-color: black;">
             <p>
                 <button onclick="
-                updateCalculation('1');
+                localstorage.setItem(updateCalculation('1'));
                 console.log(calculation);
             ">1</button>
 
                 <button onclick="
-                updateCalculation('2')
+                localstorage.setItem(updateCalculation('2'));
                 console.log(calculation);
             ">2</button>
 
@@ -92,6 +92,7 @@
                 <button onclick="
                 calculation = eval(calculation);
                 console.log(calculation);
+                localStorage.setItem('calculation', calculation);
             ">=</button>
 
                 <button onclick="
@@ -103,16 +104,23 @@
             <p>
                 <button onclick="
                 calculation = '';
-                console.log('Cleared.');
+                console.log(calculation);
+
+                localStorage.setItem('calculation', calculation);
             ">Clear</button>
             </p>
 
             <script>
-            let calculation = '';
+            let calculation = localStorage.getItem('calculation' || '');
 
             function updateCalculation (num) {
                 calculation += num;
                 console.log(calculation);
+                localStorage.setItem('calculation', calculation);
+            }
+
+            function saveCalculation() {
+                localStorage.setItem('calculation', calculation);
             }
             </script>
         </body>
