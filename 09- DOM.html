@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>DOM</title>
+
+    </head>
+    <body>
+        <h1 style="text-align: center;">Document Object Model</h1>
+
+        <!-- <button>Hello</button>
+        <button class="js-button">Second button</button> -->
+
+        <button>9a</button>
+
+        <button onclick="
+            changeButton();
+        " class="js-buttonb">9b</button>
+
+        <button onclick="
+            handt();
+        ">Heads</button>
+        <button onclick="
+            handt2();
+        ">Tails</button>
+
+        <p class="js-choice"></p>
+
+        <input type="text" placeholder="Name" class="js-input-box"
+        onkeydown="
+        console.log(event.key);
+            eventKeys();
+        ">
+
+        <button onclick="
+            submitButton();
+        " class="submitButton">Submit</button>
+
+        <p class="js-nameText"></p>
+
+        <script>
+            function eventKeys() {
+                if (event.key === 'Enter') {
+                    submitButton();
+                };
+            }
+
+            function submitButton() {
+                const inputBox = document.querySelector('.js-input-box');
+
+                document.querySelector('.js-nameText')
+                .innerHTML = `Your name is: ${inputBox.value}`;
+            }
+
+            function handt() {
+                document.querySelector('.js-choice').innerHTML = 'You chose: heads';
+                console.log(document.body.innerHTML);
+            }
+
+            function handt2() {
+                document.querySelector('.js-choice').innerHTML = 'You chose: tails';
+                console.log(document.body.innerHTML);
+            }
+
+            function changeButton() {
+            const buttonElement9b = document.querySelector('.js-buttonb');
+
+                if(buttonElement9b.innerText === '9b') {
+                    buttonElement9b.innerHTML = '9b done!';
+                } else {
+                    buttonElement9b.innerHTML = '9b';
+                }
+
+            return buttonElement9b;
+            }
+
+            // String(25)
+            // console.log('25' - 5);
+            // console.log('25' + 5);
+
+            // window.document
+            // window.console.log('window');
+            // window.alert
+
+            // console.log(document.querySelector('button').innerHTML);
+            // console.log(document.querySelector('h1').innerHTML);
+
+            // document.querySelector('button')
+            //     .innerHTML = 'Changed';
+
+            // const buttonElement = document.querySelector('.js-button');
+            // console.log(buttonElement);
+
+            // console.log(document.title);
+            // document.title ='Changed';
+
+            // console.log(document.body);
+            // console.log(typeof document.body);
+            
+            // console.log(document.body.innerHTML);
+            // document.body.innerHTML = '<button>Good job!</button>';
+
+            // document.body.innerHTML = 'hello';
+            // document.title = 'Good Job!';
+        </script>
+    </body>
+</html>

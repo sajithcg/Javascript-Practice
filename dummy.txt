@@ -10,3 +10,12 @@ document.body.innerHTML="";
 
 alert(`Total cost: $${(599+295)/100}\nThank you, come again!`);
 
+
+
+    // if (!score) {
+    //     score = {
+    //         wins: 0,
+    //         loses: 0,
+    //         ties: 0,
+    //     };
+    // }
