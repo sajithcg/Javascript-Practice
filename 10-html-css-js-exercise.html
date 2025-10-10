@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML CSS JS EXERCISE</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .title{
+            padding: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+        }
+
+        .atoc-button {
+            background-color: rgb(255, 216, 20);
+            border: none;
+            padding: 15px 50px;
+            margin: 10px 10px;
+            border-radius: 25px;
+        }
+
+        p {
+            font-size: medium;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .uber-button{
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .uber-button-alter{
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .is-toggled {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .is-toggled-alter {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .test-button {
+            background-color: red;
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 50%;
+        }
+
+        .tested-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="title">HTML CSS JS EXERCISE</h1>
+
+    <p>Amazon button</p>
+    <button class="js-cart-button atoc-button">Add to Cart</button>
+
+    <p>Uber buttons</p>
+    <button
+    onclick="
+        Uber();
+    " class="js-uber-button uber-button">
+    Request now</button>
+
+    <p>
+        <button 
+        onclick="
+            test();
+        " class="js-button test-button">Test</button>
+    </p>
+
+    <br>
+
+    <button 
+    onclick="
+        subButtons('.js-subButton');
+    " class="js-subButton is-toggled">
+        Gaming</button>
+
+    <button 
+    onclick="
+        subButtons('.js-subButton2');
+    " class="js-subButton2 is-toggled">
+        Music</button>
+
+    <button 
+    onclick="
+        subButtons('.js-subButton3');
+    " class="js-subButton3 is-toggled">
+        Tech</button>
+
+    <script>
+        function subButtons(selector) {
+            const subButtons = document.querySelector(selector);
+            if (!subButtons.classList.contains('is-toggled-alter')) {
+                previousButton();
+                subButtons.classList.add('is-toggled-alter');
+            } else {
+                subButtons.classList.remove('is-toggled-alter');
+            }
+        }
+
+        function previousButton() {
+        const prevButton = document.querySelector('.is-toggled-alter');
+            if (prevButton) {
+                prevButton.classList.remove('is-toggled-alter');
+            }
+        }
+
+
+        function test() {
+            const button = document.querySelector('.js-button');
+
+            if(button.innerText === 'Test') {
+                button.innerHTML = 'Tested';
+                button.classList.add('tested-button');
+            } else {
+                button.innerHTML = 'Test';
+                button.classList.remove('tested-button');
+            }
+        }
+
+        function Uber() {
+            const uberButton =  document.querySelector('.js-uber-button');
+
+            if (uberButton.innerText === 'Request now') {
+                uberButton.innerHTML = 'Schedule for later';
+                uberButton.classList.add('uber-button-alter');
+            } else {
+                uberButton.innerHTML = 'Request now';
+                uberButton.classList.remove('uber-button-alter');
+            }
+        }
+
+    </script>
+</body>
+</html>
