@@ -40,6 +40,10 @@
                 padding: 12px 15px;
                 cursor: pointer;
             }
+
+            .errorMsg {
+                color: red;
+            }
         </style>
 
     </head>
@@ -73,23 +77,22 @@
         
         <p class="js-total-cost"></p>
 
+        <p class="js-errorMsg errorMsg"></p>
+
         
-        <input type="text" placeholder="Type something" class="js-input"
+        <!-- <input type="text" placeholder="Type something" class="js-input"
         onkeyup="
             messageBOX();
-        ">
-        <p class="js-input-text"></p>
-
-
-
+        "> -->
+        <!-- <p class="js-input-text"></p> -->
 
 
         <script>
-            function messageBOX() {
-                const inputBOX = document.querySelector('.js-input');
-                document.querySelector('.js-input-text')
-                .innerHTML = inputBOX.value;
-            }
+            // function messageBOX() {
+            //     const inputBOX = document.querySelector('.js-input');
+            //     document.querySelector('.js-input-text')
+            //     .innerHTML = inputBOX.value;
+            // }
 
             function handleCostKeydown(event) {
                 if (event.key === 'Enter') {
@@ -100,16 +103,27 @@
             function calculateTotal() {
                 const inputElement = document.querySelector('.js-cost-input');
                 
-                let cost = Number(inputElement.value) * 100;
-                console.log(cost);
-
-                if (cost < 4000) {
-                    cost = cost + 1000;
-                }
+                let cost = Number(inputElement.value);
 
                 document.querySelector('.js-total-cost')
-                    .innerHTML = `$${cost / 100}`;
+                    .innerHTML = '';
+                document.querySelector('.js-errorMsg')
+                    .innerHTML = '';
+
+                    if (cost < 0) {
+                        document.querySelector('.js-errorMsg')
+                            .innerHTML = 'Error: cost cannot be less than $0';
+                            return;
+                    }
+
+                    if (cost < 40) {
+                        cost += 10;
+                    }
+
+                    document.querySelector('.js-total-cost')
+                    .innerHTML = `$${cost}`;
             }
+
 
             function subscribe() {
                 const buttonElement = document.querySelector('.js-subs-button');
