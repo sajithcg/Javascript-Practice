@@ -66,23 +66,76 @@
         //     console.log(value);
         // }
 
-        const nums = [1, 1, 3];
-        let total = 0;
+        // const nums = [1, 1, 3];
+        // let total = 0;
 
-        for (let i = 0; i < nums.length; i++) {
-            const num = nums[i];
-            total += num;
+        // for (let i = 0; i < nums.length; i++) {
+        //     const num = nums[i];
+        //     total += num;
+        // }
+        // console.log(total);
+
+
+        // const nums2 = [];
+        
+        // for (let i = 0; i < nums.length; i++) {
+        //     const num = nums[i];
+        //     nums2.push(num * 2);
+        // }
+        // console.log(nums2);
+
+
+
+        // 11 (b) references
+        const array1 = [1, 2, 3];
+        const array2 = array1.slice();
+        array2.push(4);
+        console.log(array1);
+        console.log(array2);
+
+        // for loops through array in continue and break
+        const [firstValue, secondValue] = [1, 2, 3];
+        
+        for(let i = 1; i <= 10; i++) {
+            if (i % 3 === 0) {
+                continue;
+            }
+            console.log(i);
+            if ( i === 8) {
+                break;
+            }
         }
-        console.log(total);
 
 
+        // WHILE LOOP IN BREAK AND CONTINUE
+        let i = 1;
+
+        while(i <= 10) {
+            if ( i % 3 === 0) {
+                i++;
+                continue;
+            }
+            console.log(i);
+            i++;
+        }
+
+
+        // /loops with functions
+        
+        function doubleArray (nums) {
         const nums2 = [];
         
         for (let i = 0; i < nums.length; i++) {
             const num = nums[i];
-            nums2.push(num * 2);
+            if(num === 0) {
+                return nums2;
+            }
+            nums2.push(nums[i] * 2);
         }
-        console.log(nums2);
-    </script>
+        return nums2;
+    }
+    console.log(doubleArray([1, 1, 3]));
+    console.log(doubleArray([2, 3, 5, 0, 7]));
+    </script> 
 </body>
 </html>
