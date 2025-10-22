@@ -1,0 +1,10 @@
+.start-button,
+.cart-button{
+  background-color: dimgray;
+  color: white;
+  padding: 10px 30px;
+  font-weight: bolder;
+  font-family: monospace;
+  border: none;
+  border-radius: 5px;
+}

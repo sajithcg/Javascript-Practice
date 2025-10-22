@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Advanced Functions</title>
+</head>
+<body>
+    <h1>Advanced Functions</h1>
+
+    <script>
+      // function greeting() {
+      //   console.log('Hello');
+      // }
+      // greeting();
+
+      // const num = 2;
+
+      // const function1 = function() {
+      //   console.log('Hello2');
+      // };
+      // // console.log(function1);
+      // // console.log(typeof function1);
+      // function1();
+
+
+      // const object1 = {
+      //   num: 2,
+      //   fun: function() {
+      //     console.log('Hello3');
+      //   }
+      // };
+      // object1.fun();
+
+      
+      // function display(num) {
+      //   console.log(num * 5);
+      // }
+      // display(2);
+
+
+      // function run(param) {
+      //   param();
+      // }
+      // run(function() {
+      //   console.log('hello mapla')
+      // }); this is woont use
+
+
+      // setTimeout is a Async code
+      
+      // setTimeout(function() {
+      //   console.log('timeout');
+      //   console.log('timeout2');
+      // }, 2500);
+
+      // console.log('next line');
+
+
+      // setInterval(function() {
+      //   console.log('Interval');
+      // }, 2000);
+      // console.log('next line 2');
+
+
+      [
+        'make dinner',
+        'wash dishes',
+        'go to gym'
+      ].forEach(function(value, index) {
+        if(value === 'wash dishes') {
+          return;
+        }
+        
+        console.log(index);
+        console.log(value);
+      });
+
+      </script>
+</body>
+</html>
