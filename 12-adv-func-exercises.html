@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adv func exercises</title>
+  
+  <title class="js-title" onclick="
+    title();
+  ">Adv func exercises</title>
+  
   <link rel="stylesheet" href="styles/12-adv-func-exercises.css">
 </head>
 <body>
@@ -20,6 +24,16 @@
   ">Add to cart</button>
 
   <p class="js-cartButton"></p>
+
+  <button
+  onclick="
+    add();
+  ">Add</button>
+
+  <button
+  onclick="
+    remove();
+  ">Remove</button>
 
   <script src="scripts/12-adv-func-exercises.js">
   </script>

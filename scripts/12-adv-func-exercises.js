@@ -1,9 +1,9 @@
 // 1 this is manual twice the output
-const add = function() {
+const adding = function() {
   console.log(2+3);
 };
-add();
-add();
+adding();
+adding();
 
 // 2
 function runTwice(fun) {
@@ -14,7 +14,7 @@ function runTwice(fun) {
 runTwice(function() {
   console.log('12b');
 });
-runTwice(add);
+runTwice(adding);
 
 
 // 3
@@ -40,7 +40,6 @@ function startButton() {
 
 
 // 5
-
 let timeoutId;
 
 function cartButton() {
@@ -52,4 +51,92 @@ function cartButton() {
   timeoutId = setTimeout(function() {
     cartButton.innerText = '';
   }, 2000);
+}
+
+
+// 6
+// setInterval(function() {
+//     if(document.title === 'App') {
+//       document.title = '(2) New messages';
+//     } else {
+//       document.title = 'App';
+//     }
+//   }, 1000);
+
+
+// 7
+// let messages = 2;
+
+// setInterval(function() {
+//     if(document.title === 'App') {
+//         document.title = `(${messages}) New messages`;
+//     } else {
+//       document.title = 'App';
+//     }
+//   }, 1000);
+
+// function add() {
+//     messages++;
+//     document.title = `(${messages}) New messages`;
+// }
+
+// function remove() {
+//   if (messages > 0) {
+//     messages--;
+//   } else {
+//     alert('Ellam oru alavu thaan!!!');
+//   } 
+//   document.title = `(${messages}) New messages`;
+// }
+
+
+
+// 8
+let messages = 2;
+
+let intervalId;
+
+let isDisplay;
+
+display();
+
+function display() {
+  if(isDisplay) {
+    return;
+  }
+
+isDisplay = true;
+
+intervalId = setInterval(() => {
+    if(document.title === 'App') {
+        document.title = `(${messages}) New messages`;
+    } else {
+      document.title = 'App';
+    }
+  }, 1000);
+
+}
+
+function stopNotify() {
+  isDisplay = false;
+
+  clearInterval(intervalId);
+  document.title = 'App';
+}
+
+function remove() {
+  if (messages > 0) {
+    messages--;
+    if(messages === 0) {
+      stopNotify();
+    }
+  } else {
+    alert('Ellam oru alavu thaan!!!');
+  } 
+  document.title = `(${messages}) New messages`;
+}
+
+function add() {
+    messages++;
+    document.title = `(${messages}) New messages`;
 }
