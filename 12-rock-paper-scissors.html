@@ -10,19 +10,17 @@
     <body>
         <p class="title">Rock Paper Scissors</p>
 
-        <button onclick="
-            playGame('rock');
-            "
-        class="move-button">
-        <img src="./img/rock-emoji.png" class="move-icon" alt="rock"></button>
+        <button class="move-button js-rock-button">
+            <img src="./img/rock-emoji.png" class="move-icon" alt="rock">
+        </button>
 
-        <button onclick="
-            playGame('paper');
-        " class="move-button"><img src="./img/paper-emoji.png" class="move-icon" alt="paper"></button>
+        <button class="move-button js-paper-button">
+            <img src="./img/paper-emoji.png" class="move-icon" alt="paper">
+        </button>
 
-        <button onclick="
-            playGame('scissors');
-        " class="move-button"><img src="./img/scissors-emoji.png" class="move-icon" alt="scissors"></button>
+        <button class="move-button js-scissors-button">
+            <img src="./img/scissors-emoji.png" class="move-icon" alt="scissors">
+        </button>
 
         <p class="js-result result"></p>
 
@@ -44,7 +42,6 @@
         ">Auto Play</button>
 
         <script src="scripts/12-rock-paper-scissors.js">
-
         </script>
     </body>
 </html>
