@@ -27,9 +27,13 @@ runTwice(adding);
 // }
 
 
-// 4
-function startButton() {
+// 3 and 4
+const startButton = () => {
   const button = document.querySelector('.js-button');
+    
+  button.addEventListener('click', () => {
+      return startButton();
+    });
 
     document.querySelector('.js-button').innerHTML = 'loading...';
 
@@ -42,8 +46,13 @@ function startButton() {
 // 5
 let timeoutId;
 
-function cartButton() {
+const cartButton = () => {
   const cartButton = document.querySelector('.js-cartButton');
+  
+  cartButton.addEventListener('click', () => {
+    cartButton();
+  });
+
   cartButton.innerHTML = 'Added';
   
   clearTimeout(timeoutId);
@@ -98,9 +107,7 @@ let intervalId;
 
 let isDisplay;
 
-display();
-
-function display() {
+const display = () => {
   if(isDisplay) {
     return;
   }
@@ -108,35 +115,113 @@ function display() {
 isDisplay = true;
 
 intervalId = setInterval(() => {
-    if(document.title === 'App') {
-        document.title = `(${messages}) New messages`;
-    } else {
-      document.title = 'App';
-    }
+    document.title = document.title === 'App' 
+      ? `(${messages}) New messages` 
+      : 'App';
   }, 1000);
+};
 
-}
-
-function stopNotify() {
+const stopNotify = () => {
   isDisplay = false;
 
   clearInterval(intervalId);
   document.title = 'App';
-}
+};
 
-function remove() {
+const remove = () => {
   if (messages > 0) {
     messages--;
     if(messages === 0) {
       stopNotify();
-    }
+    } else {
+      document.title = `(${messages}) New messages`;
+  } 
   } else {
     alert('Ellam oru alavu thaan!!!');
-  } 
-  document.title = `(${messages}) New messages`;
-}
+  }
+};
 
-function add() {
+const add = () => {
     messages++;
     document.title = `(${messages}) New messages`;
+};
+
+const addButton = document.querySelector('.js-addButton')
+  .addEventListener('click', add);
+
+const removeButton = document.querySelector('.js-removeButton')
+  .addEventListener('click', remove);
+
+display();
+
+
+// Adv Function Exercises Pt. 2
+
+// 9
+// const multiply = (num1, num2) => {
+//   return num1 * num2;
+// }
+// console.log(multiply(2, 3));
+// console.log(multiply(7, 10));
+
+
+// 10 is writing in one line
+const multiply = (num1, num2) => num1 * num2;
+
+console.log(multiply(2, 3));
+console.log(multiply(7, 10));
+
+
+// 11
+function countPositive(nums) {
+  let positiveNum = 0;
+
+  nums.forEach((num) => {
+    if(num > 0) {
+      positiveNum++;
+    }
+  });
+
+  return positiveNum;
 }
+console.log(countPositive([1, -3, 5]));
+console.log(countPositive([-2, 3, -5, 7, 10]));
+
+
+
+// 12
+function addNum(array, num) {
+  return array.map((value) => value + num );
+}
+console.log(addNum([1, 2, 3], 2));
+console.log(addNum([-2, -1, 0, 99], 2));
+
+
+// 13
+// function removeEgg(foods) {
+//   // return foods.filter((food) => {
+//   //   food !== 'egg';
+//   // })
+
+//   // writing on one line
+//   return foods.filter((food) => food !== 'egg')
+// }
+// console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+
+// 14
+function removeEgg(foods) {
+  let eggs = 0;
+
+  return foods.filter((food) => {
+    if(food === 'egg' && eggs < 2) {
+      eggs++;
+      return false;
+    }
+    return true;
+  });
+}
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+
+// 15
